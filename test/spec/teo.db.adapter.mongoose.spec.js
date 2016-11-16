@@ -17,7 +17,7 @@ describe("Testing teo.db.adapter.mongoose", () => {
 
     beforeEach(() => {
         config = {
-            mongooseAdapter: {
+            adapterConfig: {
                 host: "localhost",
                 dbName: "test"
             }
