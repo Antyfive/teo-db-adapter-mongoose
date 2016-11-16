@@ -33,3 +33,12 @@ module.exports = {identity, schema};
 ```
 Each model should have **identity**, and **schema** properties. To add a model directly via this API, call `adapter.addModel({idenity: 'users', schema: new Mongoose.Schema({/**/})})`.
 
+### API
+
+#### addModel([shemaObject{}])
+#### connect() [generator function]
+Connects ORM. All models should be loaded **before** the connection to DB.
+#### disconnect() [generator function]
+Disconnects ORM.
+#### isConnected()
+Returns `boolean` to detect if connection is set.
