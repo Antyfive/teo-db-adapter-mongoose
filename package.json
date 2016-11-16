@@ -1,0 +1,31 @@
+{
+  "name": "teo-db-adapter-mongoose",
+  "version": "1.0.0",
+  "description": "Teo.JS database adapter for Mongoose",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Antyfive/teo-db-adapter-mongoose.git"
+  },
+  "keywords": [
+    "teo.js",
+    "database",
+    "mongoose",
+    "adapter",
+    "orm",
+    "rest"
+  ],
+  "author": "Andrew Teologov <teologov.and@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Antyfive/teo-db-adapter-mongoose/issues"
+  },
+  "homepage": "https://github.com/Antyfive/teo-db-adapter-mongoose#readme",
+  "dependencies": {
+    "mongoose": "^4.6.8",
+    "teo-db-adapter": "^1.0.0"
+  }
+}
