@@ -25,7 +25,13 @@
   },
   "homepage": "https://github.com/Antyfive/teo-db-adapter-mongoose#readme",
   "dependencies": {
+    "mocha": "^3.1.2",
     "mongoose": "^4.6.8",
+    "short-async": "^1.0.1",
+    "sinon": "^1.17.6",
     "teo-db-adapter": "^1.0.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0"
   }
 }
