@@ -1,14 +1,14 @@
 # teo-db-adapter-mongoose
 Mongoose adapter for [Teo.JS](https://github.com/Antyfive/teo.js).
+## Installation
+`npm i -S teo-db-adapter-mongoose`
 ## Usage Example
 ```javascript
 const MongooseAdapter = require("teo-db-adapter-mongoose");
 const adapter = new MongooseAdapter({
-  // this config is usually set in Teo.JS config, so we should support the current signature of other APIs
-  adapterConfig: {
-    host: "localhost",
-    dbName: "test"
-  }
+  // this config is usually set in Teo.JS configuration file
+  host: "localhost",
+  dbName: "test"
 });
 ```
 Example of the real model, which can be created in Teo.JS application.
