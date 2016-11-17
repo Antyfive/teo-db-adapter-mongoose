@@ -1,6 +1,6 @@
 {
   "name": "teo-db-adapter-mongoose",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Teo.JS database adapter for Mongoose",
   "main": "index.js",
   "scripts": {
