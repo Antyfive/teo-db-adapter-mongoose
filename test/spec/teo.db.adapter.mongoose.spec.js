@@ -17,10 +17,8 @@ describe("Testing teo.db.adapter.mongoose", () => {
 
     beforeEach(() => {
         config = {
-            adapterConfig: {
-                host: "localhost",
-                dbName: "test"
-            }
+            host: "localhost",
+            dbName: "test"
         };
 
         global.logger = {
