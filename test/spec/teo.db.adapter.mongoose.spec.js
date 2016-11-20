@@ -54,10 +54,9 @@ describe("Testing teo.db.adapter.mongoose", () => {
 
         });
 
-        it("Should create model objects", () => {
+        it("Should create model object", () => {
 
             assert.isObject(adapter.models);
-            assert.isObject(adapter.schemas);
 
         });
 
@@ -65,29 +64,17 @@ describe("Testing teo.db.adapter.mongoose", () => {
 
     it("Should add a single model", () => {
 
-        adapter.addModel({ identity: "myModel", schema: { mySchema: true }});
-
-        assert.deepEqual(adapter.schemas, { myModel: { mySchema: true }});
-
-    });
-
-    it("Should create models from passed recently schemas", () => {
+        mongooseModelStub.returns({ mySchema: true });
 
         adapter.addModel({ identity: "myModel", schema: { mySchema: true }});
 
-        assert.deepEqual(adapter.models, {});
-
-        mongooseModelStub.returns("myModelHere");
-
-        adapter.createModels();
-
-        assert.deepEqual(adapter.models, {myModel: "myModelHere"});
+        assert.deepEqual(adapter.models, { myModel: { mySchema: true }});
 
     });
 
     describe("Connect & Disconnect", () => {
 
-        let connectStub, emitter, createModelsStub, disconnectStub;
+        let connectStub, emitter, disconnectStub;
 
         beforeEach(() => {
 
@@ -95,7 +82,6 @@ describe("Testing teo.db.adapter.mongoose", () => {
             disconnectStub = sinon.stub(Mongoose, "disconnect", (cb) => {
                 cb();
             });
-            createModelsStub = sinon.stub(adapter, "createModels");
 
             emitter = new Emitter();
             Mongoose.connection = emitter;
@@ -105,7 +91,6 @@ describe("Testing teo.db.adapter.mongoose", () => {
         afterEach(() => {
 
             connectStub.restore();
-            createModelsStub.restore();
             disconnectStub.restore();
             emitter = null;
 
@@ -123,8 +108,6 @@ describe("Testing teo.db.adapter.mongoose", () => {
 
             assert.isTrue(connectStub.calledOnce);
             assert.equal(connectStub.args[0][0], 'mongodb://localhost/test', 'Url should be correct');
-
-            assert.isTrue(createModelsStub.calledOnce);
 
             assert.isTrue(adapter.connected);
             assert.isTrue(adapter.isConnected());
