@@ -130,6 +130,38 @@ describe("Testing teo.db.adapter.mongoose", () => {
 
         }));
 
+        describe('Connection url', () => {
+            beforeEach(() => {
+                config = {
+                    host: "myHost",
+                    dbName: "test",
+                    port: 49489,
+                    dbName: "myBd",
+                    dbUser: "testUser",
+                    dbPass: "testPass"
+                };
+
+                global.logger = {
+                    error: sinon.spy(),
+                    success: sinon.spy()
+                };
+
+                adapter = new MongooseAdapter(config);
+            });
+
+            afterEach(() => {
+
+                config = adapter = global.logger = null;
+                mongooseModelStub.reset();
+
+            });
+
+            it("Should return correct connection url", () => {
+                const url = adapter.getConnectionUrl();
+                assert.equal(url, 'mongodb://testUser:testPass@myHost:49489/myBd', 'Should return correct connection url');
+            });
+        });
+
     });
 
 });
